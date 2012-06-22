@@ -1,0 +1,13 @@
+{% load i18n markup %}
+
+<div id="onlineDocs">
+    {% if docs %}
+        {{ docs|markdown }}
+    {% else %}
+        <h1>{% trans "No documentation found" %}</h1>
+        <p>{% trans "We are sorry but we could not find any documentation for this page." %}</p>
+        {% if DEBUG %}
+            <p>{% trans "Expected filename: " %} {{ document_name }}</p>
+        {% endif %}
+    {% endif %}
+</div>

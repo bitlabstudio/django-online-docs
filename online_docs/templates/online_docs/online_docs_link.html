@@ -1,0 +1,3 @@
+{% load i18n %}
+{% load url from future %}
+<a id="onlineDocsLink" href="{% url "online_docs_view" %}?path={{ request.path }}">{% trans "Docs" %}</a>

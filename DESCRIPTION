@@ -1,0 +1,3 @@
+A reusable Django app that shows documentation for the view that is currently
+displayed. The documentation is written in Markdown and gets displayed in
+jQuery modals.

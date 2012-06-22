@@ -1,0 +1,3 @@
+recursive-include online_docs *
+include README.md DESCRIPTION
+exclude *.orig *.pyc
