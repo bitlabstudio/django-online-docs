@@ -99,8 +99,8 @@ you the expected filename.
 Again: Don't forget to run ``./manage.py collectstatic`` after adding or
 changing any ``.md`` file.
 
-Contribution
-------------
+Contribute
+----------
 
 If you want to contribute to this project, please perform the following steps::
 
