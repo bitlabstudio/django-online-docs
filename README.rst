@@ -6,7 +6,7 @@ project.
 
 It resolves the current URL and tries to load a Markdown file for the
 currently displayed view in a jQuery modal. The files simply need to be stored
-in your app's `/static/online_docs/` folders.
+in your app's ``/static/online_docs/`` folders.
 
 Now all you have to do is run `./manage.py collectstatic` and this app should
 be able to find your documentation files.
