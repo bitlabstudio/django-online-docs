@@ -4,7 +4,15 @@ Django Online Documentation
 A Django application for showing user documentation on every page of your
 project.
 
-It resolves the current URL and tries to load a Markdown file for the
+Most big customers request a user documentation in Microsoft Word format. We
+thought that this is insane because we develop web applications in an agile way
+which means that such a documentation would be outdated almost immediately.
+There would also be the issue to send the latest documentation to all users so
+we thought why not just include the documentation on the page itself. And why
+not make the documentation smart enough to only show the docs about the page
+that is currently displayed.
+
+This app resolves the current URL and tries to load a Markdown file for the
 currently displayed view in a jQuery modal. The files simply need to be stored
 in your app's ``/static/online_docs/`` folders.
 
@@ -12,8 +20,13 @@ Now all you have to do is run ``./manage.py collectstatic`` and this app should
 be able to find your documentation files.
 
 Please be aware that this is a first prototype and proof of concept for this
-idea. It is very simplistic and doesn't solve problems like DRY and i18n. This
-is on the roadmap, though.
+idea. It is very simplistic and probably violates DRY and does not support
+i18n. This is on the roadmap, though.
+
+This is how it looks like when you are on the ``/docs/`` page and click at the
+``Docs`` navigation link:
+
+![Online docs sample](https://github.com/bitmazk/django-online-docs/raw/master/screenshot.png)
 
 Installation
 ------------
@@ -93,3 +106,4 @@ Roadmap
   i18n and url support.
 * When DEBUG=True, try to load the files via urrlib, which would allow to test
   the files without running collectstatic all the time.
+* Allow to link between different doc files
