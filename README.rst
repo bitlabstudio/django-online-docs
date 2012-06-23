@@ -121,6 +121,9 @@ Whenever you run the tests a coverage output will be generated in
 ``tests/coverage/index.html``. When adding new features, please make sure that
 you keep the coverage at 100%.
 
+Oh and... if you submit patches that make our tests fail, you will be publicly
+humiliated on http://travis-ci.org/#!/bitmazk/django-online-docs ;)
+
 If you are making changes that need to be tested in a browser (i.e. to the
 CSS or JS files), you might want to setup a Django project, follow the
 installation insttructions above, then run ``python setup.py develop``. This
