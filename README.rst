@@ -83,7 +83,7 @@ Usage
 -----
 
 Just create a ``/static/online_docs/`` folder in your app that you want to
-document. Ten place ``.md`` files in that folder. The names of the files should
+document. Then place ``.md`` files in that folder. The names of the files should
 be of the format ``[namespace_]view_name`` (namespace is optional). Don't
 forget to run ``./manage.py collectstatic`` after adding or changing such
 files.
@@ -98,6 +98,33 @@ you the expected filename.
 
 Again: Don't forget to run ``./manage.py collectstatic`` after adding or
 changing any ``.md`` file.
+
+Contribution
+------------
+
+If you want to contribute to this project, please perform the following steps::
+
+    # Fork this repository
+    # Clone your fork
+    $ mkvirtualenv -p python2.7 django-online-docs
+    $ pip install -r requirements.txt
+    $ ./online_docs/tests/runtests.sh
+    # You should get no failing tests
+
+    $ git co -b feature_branch master
+    # Implement your feature and tests
+    $ git add . && git commit
+    $ git push origin feature_branch
+    # Send us a pull request for your feature branch
+
+Whenever you run the tests a coverage output will be generated in
+``tests/coverage/index.html``. When adding new features, please make sure that
+you keep the coverage at 100%.
+
+If you are making changes that need to be tested in a browser (i.e. to the
+CSS or JS files), you might want to setup a Django project, follow the
+installation insttructions above, then run ``python setup.py develop``. This
+will just place an egg-link to your cloned fork in your project's virtualenv.
 
 Roadmap
 -------
