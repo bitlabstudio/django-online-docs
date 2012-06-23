@@ -46,6 +46,14 @@ Add ``online_docs`` to your ``INSTALLED_APPS``::
         'online_docs',
     )
 
+Hook this app into your ``urls.py``::
+
+    urlpatterns = patterns('',
+        ...
+        url(r'^docs/$',
+            include('online_docs.urls')),
+    )
+
 Add jQuery and jQuery-ui and ``online_docs.js`` to your ``base.html``.
 Furthermore ``online_docs/css/styles.css`` will give you some simple styles for
 the output that Markdown generates. You can leave out this stylesheet and just
@@ -78,6 +86,9 @@ Add the link to open the docs to your base.html::
 
 If you don't like the appearance of the docs link, you can override the
 template ``online_docs/online_docs_link.html``.
+
+You can test if everything worked fine by running your site and going to the
+URL where you have hooked up this app (i.e. ``/docs/?path=/docs/``).
 
 Usage
 -----
