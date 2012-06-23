@@ -2,13 +2,43 @@
 import os
 
 from django.conf import settings
+from django.core.urlresolvers import reverse
 from django.test import TestCase, RequestFactory
 
-from myproject.tests.mixins import ViewTestsMixin
 from online_docs.views import OnlineDocsView
 
 
-class OnlineDocsViewTestCase(ViewTestsMixin, TestCase):
+class ViewTestMixin(object):
+    def get_view_name(self):
+        """
+        Returns the URL of this view by using ``reverse``.
+
+        You must implement this when inheriting this mixin.
+
+        """
+        return NotImplementedError
+
+    def get_url(self, view_name=None, view_args=None, view_kwargs=None):
+        """
+        Returns the request params for this view.
+
+        When calling ``self.client.get`` we usually need three parameter:
+
+            * The URL, which we construct from the view name using ``reverse``
+            * The args
+            * The kwargs
+
+        In most cases ``args`` and ``kwargs`` are ``None``, so this method will
+        help to return the proper URL by calling instance methods that can
+        be overridden where necessary.
+
+        """
+        if view_name is None:
+            view_name = self.get_view_name()
+        return reverse(view_name, args=view_args, kwargs=view_kwargs)
+
+
+class OnlineDocsViewTestCase(ViewTestMixin, TestCase):
     """Tests for the ``OnlineDocsView`` view class."""
     def get_view_name(self):
         return 'online_docs_view'

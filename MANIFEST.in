@@ -1,3 +1,6 @@
-recursive-include online_docs *
-include README.md DESCRIPTION
+include AUTHORS
+include LICENSE
+include DESCRIPTION
+include README.md
+graft online_docs
 exclude *.orig *.pyc
