@@ -9,4 +9,5 @@ from django.conf.urls.defaults import include, patterns, url
 
 urlpatterns = patterns('',
     url(r'^docs/', include('online_docs.urls')),
+    url(r'^jasmine/', include('django_jasmine.urls')),
 )

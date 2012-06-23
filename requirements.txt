@@ -13,3 +13,5 @@ markdown
 django-nose
 coverage
 django-coverage
+django-jasmine
+selenium

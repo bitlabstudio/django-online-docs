@@ -54,24 +54,23 @@ Hook this app into your ``urls.py``::
             include('online_docs.urls')),
     )
 
-Add jQuery and jQuery-ui and ``online_docs.js`` to your ``base.html``.
-Furthermore ``online_docs/css/styles.css`` will give you some simple styles for
-the output that Markdown generates. You can leave out this stylesheet and just
-add the styles to your own main stylesheet if you want::
+Download jQuery and jQuery-ui and place it in your ``/static/`` folder. Then
+add both libraries and ``online_docs.js`` to your ``base.html``.  Furthermore
+``online_docs/css/styles.css`` will give you some simple styles for the output
+that Markdown generates. You can leave out this stylesheet and just add the
+styles to your own main stylesheet if you want::
 
     <head>
         ...
-        <link rel="stylesheet" href="{{ STATIC_URL }}css/libs/ui-lightness/jquery-ui-1.8.16.custom.css">
+        <!-- import the jquery-ui stylesheet here -->
         <link rel="stylesheet" href="{{ STATIC_URL }}online_docs/css/styles.css">
         ...
     </head>
     <body>
         ...
         <!-- Load these scripts before the closing <body> tag -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="{{ STATIC_URL }}js/libs/jquery-1.7.0.min.js"><\/script>')</script>
-        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.19/jquery-ui.min.js"></script>
-        <script>window.jQuery || document.write('<script src="{{ STATIC_URL }}js/libs/jquery-ui-1.8.19.min.js"><\/script>')</script>
+        <!-- Import jQuery here -->
+        <!-- Import jQuery-ui here -->
         <script src="{{ STATIC_URL }}online_docs/js/online_docs.js"></script>
     </body>
 

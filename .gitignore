@@ -1,4 +1,5 @@
 *.pyc
 *.egg-info/
+chromedriver.log
 coverage/
 dist/
