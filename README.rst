@@ -8,7 +8,7 @@ It resolves the current URL and tries to load a Markdown file for the
 currently displayed view in a jQuery modal. The files simply need to be stored
 in your app's ``/static/online_docs/`` folders.
 
-Now all you have to do is run `./manage.py collectstatic` and this app should
+Now all you have to do is run ``./manage.py collectstatic`` and this app should
 be able to find your documentation files.
 
 Please be aware that this is a first prototype and proof of concept for this
@@ -26,17 +26,17 @@ If you feel adventurous and want to install the latest commit from GitHub::
 
     $ pip install -e git://github.com/bitmazk/django-online-docs.git#egg=online_docs
 
-Add `online_docs` to your `INSTALLED_APPS`::
+Add ``online_docs`` to your ``INSTALLED_APPS``::
 
     INSTALLED_APPS = (
         ...,
         'online_docs',
     )
 
-Add jQuery and jQuery-ui and `online_docs.js` to your `base.html`. Furthermore
-`online_docs/css/styles.css` will give you some simple styles for the output
-that Markdown generates. You can leave out this stylesheet and just add the
-styles to your own main stylesheet if you want::
+Add jQuery and jQuery-ui and ``online_docs.js`` to your ``base.html``.
+Furthermore ``online_docs/css/styles.css`` will give you some simple styles for
+the output that Markdown generates. You can leave out this stylesheet and just
+add the styles to your own main stylesheet if you want::
 
     <head>
         ...
@@ -64,26 +64,27 @@ Add the link to open the docs to your base.html::
     </ul>
 
 If you don't like the appearance of the docs link, you can override the
-template `online_docs/online_docs_link.html`.
+template ``online_docs/online_docs_link.html``.
 
 Usage
 -----
 
-Just create a `/static/online_docs/` folder in your app that you want to
-document. Ten place `.md` files in that folder. The names of the files
-should be of the format `[namespace_]view_name` (namespace is optional). Don't
-forget to run `./manage.py collectstatic` after adding or changing such files.
+Just create a ``/static/online_docs/`` folder in your app that you want to
+document. Ten place ``.md`` files in that folder. The names of the files should
+be of the format ``[namespace_]view_name`` (namespace is optional). Don't
+forget to run ``./manage.py collectstatic`` after adding or changing such
+files.
 
 If you want to document views of third party apps, just create a
-`/static/online_docs` folder in your project's main static folder and place
+``/static/online_docs`` folder in your project's main static folder and place
 the files in there.
 
 If you are unsure about the filename, just run your app, go to the view and
-click at the docs link. If you have `DEBUG=True` the error message will tell
+click at the docs link. If you have ``DEBUG=True`` the error message will tell
 you the expected filename.
 
-Again: Don't forget to run `./manage.py collectstatic` after adding or changing
-any `.md` file.
+Again: Don't forget to run ``./manage.py collectstatic`` after adding or
+changing any ``.md`` file.
 
 Roadmap
 -------
