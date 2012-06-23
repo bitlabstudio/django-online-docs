@@ -26,7 +26,7 @@ i18n. This is on the roadmap, though.
 This is how it looks like when you are on the ``/docs/`` page and click at the
 ``Docs`` navigation link:
 
-![Online docs sample](https://github.com/bitmazk/django-online-docs/raw/master/screenshot.png)
+.. image:: https://github.com/bitmazk/django-online-docs/raw/master/screenshot.png
 
 Installation
 ------------
