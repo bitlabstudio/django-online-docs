@@ -142,8 +142,4 @@ will just place an egg-link to your cloned fork in your project's virtualenv.
 Roadmap
 -------
 
-* Try to run the markdown files through Django's templating engine to provide
-  i18n and url support.
-* When DEBUG=True, try to load the files via urrlib, which would allow to test
-  the files without running collectstatic all the time.
-* Allow to link between different doc files
+Check the issue tracker on github for milestones and features to come.
