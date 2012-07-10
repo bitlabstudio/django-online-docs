@@ -4,6 +4,7 @@ import os
 from django.conf import settings
 from django.core.urlresolvers import resolve
 from django.http import Http404
+from django.template import Template, RequestContext
 from django.views.generic import TemplateView
 
 
@@ -40,9 +41,11 @@ class OnlineDocsView(TemplateView):
     def get_document_content(self, file_path):
         try:
             f = open(file_path, 'r')
-            return f.read()
+            document = f.read()
         except IOError:
             return None
+        ctx = RequestContext(self.request)
+        return Template(document).render(ctx)
 
     def get_template_names(self):
         if self.request.is_ajax():
