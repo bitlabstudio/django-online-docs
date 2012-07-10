@@ -3,3 +3,4 @@
 chromedriver.log
 coverage/
 dist/
+.tox
