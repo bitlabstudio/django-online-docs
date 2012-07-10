@@ -1,6 +1,11 @@
-=== 0.3 (in development) ===
+=== 0.4 (in development) ===
 
 
+=== 0.3 ===
+
+- Loading the .md files with the Django Template() class. This means you can
+  use {% load i18n %} and use the {% trans %} and {% blocktrans %} tag to
+  create multilingual docs.
 
 === 0.2 ===
 
