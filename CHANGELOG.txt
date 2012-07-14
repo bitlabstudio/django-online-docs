@@ -1,5 +1,6 @@
 === 0.4 (in development) ===
 
+- Added tox.ini
 
 === 0.3 ===
 
