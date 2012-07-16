@@ -4,7 +4,7 @@ import os
 from django.conf import settings
 from django.core.urlresolvers import resolve
 from django.http import Http404
-from django.template import Template, RequestContext
+from django.template import loader, RequestContext
 from django.views.generic import TemplateView
 
 
@@ -19,10 +19,11 @@ class OnlineDocsView(TemplateView):
     def get_context_data(self, **kwargs):
         ctx = super(OnlineDocsView, self).get_context_data(**kwargs)
         document_name = self.get_document_name()
-        file_path = self.get_document_file_path(document_name)
-        document_content = self.get_document_content(file_path)
+        template = loader.get_template('online_docs/' + document_name)
+        template_ctx = RequestContext(self.request)
+        template_rendered = template.render(template_ctx)
         ctx.update({
-            'docs': document_content,
+            'docs': template_rendered,
             'document_name': document_name,
             'DEBUG': settings.DEBUG,
         })
@@ -32,20 +33,6 @@ class OnlineDocsView(TemplateView):
         url = resolve(self.path)
         document_name = '%s.md' % url.view_name.replace(':', '_')
         return document_name
-
-    def get_document_file_path(self, document_name):
-        file_path = os.path.join(settings.STATIC_ROOT, 'online_docs',
-            document_name)
-        return file_path
-
-    def get_document_content(self, file_path):
-        try:
-            f = open(file_path, 'r')
-            document = f.read()
-        except IOError:
-            return None
-        ctx = RequestContext(self.request)
-        return Template(document).render(ctx)
 
     def get_template_names(self):
         if self.request.is_ajax():

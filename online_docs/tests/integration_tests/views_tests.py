@@ -60,21 +60,17 @@ class OnlineDocsViewTestCase(ViewTestMixin, TestCase):
             'Should resolve the given path and return the filename with the'
             ' format "<namespace>.<view_name>.md", but returned %s' % result))
 
-    def test_get_document_file_path(self):
+    def test_get_template_names(self):
         req = RequestFactory().get(self.get_url() + '?path=/docs/')
         view = OnlineDocsView()
         view.dispatch(req)
-        document_name = 'foo_bar.md'
-        result = view.get_document_file_path(document_name)
-        self.assertEqual(result, os.path.join(
-            settings.STATIC_ROOT, 'online_docs', document_name), msg=(
-                'Should append the given filename to STATIC_ROOT/online_docs'
-                ' but returned %s' % result))
+        result = view.get_template_names()
+        self.assertEqual(result, ['online_docs/online_docs.html'], msg=(
+            'Should return the template of this app'))
 
-    def test_get_document_content(self):
-        req = RequestFactory().get(self.get_url() + '?path=/docs/')
-        view = OnlineDocsView()
+        req.is_ajax = lambda: True
         view.dispatch(req)
-        result = view.get_document_content('foobar.md')
-        self.assertEqual(result, None, msg=(
-            'Should return None if the given file could not be read'))
+        result = view.get_template_names()
+        self.assertEqual(result, ['online_docs/partials/online_docs.html'],
+            msg=('Should return the patial template if the request is an'
+                 ' ajax call'))

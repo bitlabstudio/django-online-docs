@@ -14,10 +14,7 @@ that is currently displayed.
 
 This app resolves the current URL and tries to load a Markdown file for the
 currently displayed view in a jQuery modal. The files simply need to be stored
-in your app's ``/static/online_docs/`` folders.
-
-Now all you have to do is run ``./manage.py collectstatic`` and this app should
-be able to find your documentation files.
+in your app's ``/templates/online_docs/`` folders.
 
 Please be aware that this is a first prototype and proof of concept for this
 idea. It is very simplistic and probably violates DRY and does not support
@@ -92,22 +89,17 @@ URL where you have hooked up this app (i.e. ``/docs/?path=/docs/``).
 Usage
 -----
 
-Just create a ``/static/online_docs/`` folder in your app that you want to
+Just create a ``/templates/online_docs/`` folder in your app that you want to
 document. Then place ``.md`` files in that folder. The names of the files should
-be of the format ``[namespace_]view_name`` (namespace is optional). Don't
-forget to run ``./manage.py collectstatic`` after adding or changing such
-files.
+be of the format ``[namespace_]view_name`` (namespace is optional).
 
 If you want to document views of third party apps, just create a
-``/static/online_docs`` folder in your project's main static folder and place
-the files in there.
+``/templates/online_docs`` folder in your project's main static folder and
+place the files in there.
 
 If you are unsure about the filename, just run your app, go to the view and
 click at the docs link. If you have ``DEBUG=True`` the error message will tell
 you the expected filename.
-
-Again: Don't forget to run ``./manage.py collectstatic`` after adding or
-changing any ``.md`` file.
 
 Contribute
 ----------
