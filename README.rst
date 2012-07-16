@@ -28,6 +28,11 @@ This is how it looks like when you are on the ``/docs/`` page and click at the
 Installation
 ------------
 
+You need to install the following prerequisites in order to use this app::
+
+    pip install Django
+    pip install markdown
+
 If you want to install the latest stable release from PyPi::
 
     $ pip install django-online-docs

@@ -23,10 +23,6 @@ setup(
     url="https://github.com/bitmazk/django-online-docs",
     packages=find_packages(),
     include_package_data=True,
-    install_requires=[
-        'Django',
-        'markdown',
-    ],
     tests_require=[
         'fabric',
         'factory_boy',
