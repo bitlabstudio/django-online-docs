@@ -1,4 +1,11 @@
-=== 0.4 (in development) ===
+=== 0.5 (in development) ===
+
+=== 0.4 ===
+
+- CONTAINS BACKWARDS INCOMPATIBLE CHANGES!!
+- Putting the .md into the /static/ folders was a stupid idea. They must now
+  reside in the /templates/ folders. All you need to do is to move them from
+  your apps' /static/online_docs/ folders into /templates/online_docs/ folders
 
 - Added tox.ini
 
