@@ -4,4 +4,5 @@ include DESCRIPTION
 include CHANGELOG.txt
 include README.md
 graft online_docs
+prune online_docs/tests/coverage/
 exclude *.orig *.pyc
