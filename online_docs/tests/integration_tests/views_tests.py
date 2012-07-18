@@ -1,6 +1,8 @@
 """Tests for the views of the ``online_docs`` app."""
 import os
 
+import mock
+
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.test import TestCase, RequestFactory
@@ -50,6 +52,17 @@ class OnlineDocsViewTestCase(ViewTestMixin, TestCase):
 
         resp = self.client.get(self.get_url() + '?path=/docs/')
         self.assertEqual(resp.status_code, 200)
+
+        old_method = OnlineDocsView.get_document_name
+        OnlineDocsView.get_document_name = mock.Mock()
+        OnlineDocsView.get_document_name.return_value = 'foobar.md'
+        resp = self.client.get(self.get_url() + '?path=/docs/')
+        self.assertEqual(resp.status_code, 200)
+        # I would actually like to check if the partials/online_docs.html is
+        # loaded here but for some reason it doesn't seem to get loaded, while
+        # in a real django app it works. This is to test the code path where
+        # no .md file can be found for the current view.
+        OnlineDocsView.get_document_name = old_method
 
     def test_get_document_name(self):
         req = RequestFactory().get(self.get_url() + '?path=/docs/')

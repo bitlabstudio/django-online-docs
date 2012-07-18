@@ -1,10 +1,8 @@
 """Views for the ``online_docs`` app."""
-import os
-
 from django.conf import settings
 from django.core.urlresolvers import resolve
 from django.http import Http404
-from django.template import loader, RequestContext
+from django.template import loader, RequestContext, TemplateDoesNotExist
 from django.views.generic import TemplateView
 
 
@@ -19,9 +17,12 @@ class OnlineDocsView(TemplateView):
     def get_context_data(self, **kwargs):
         ctx = super(OnlineDocsView, self).get_context_data(**kwargs)
         document_name = self.get_document_name()
-        template = loader.get_template('online_docs/' + document_name)
-        template_ctx = RequestContext(self.request)
-        template_rendered = template.render(template_ctx)
+        try:
+            template = loader.get_template('online_docs/' + document_name)
+            template_ctx = RequestContext(self.request)
+            template_rendered = template.render(template_ctx)
+        except TemplateDoesNotExist:
+            template_rendered = None
         ctx.update({
             'docs': template_rendered,
             'document_name': document_name,
