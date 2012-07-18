@@ -1,4 +1,6 @@
-=== 0.6 (in development) ===
+=== 0.7 (in development) ===
+
+=== 0.6 ===
 
 - New template tag ``url_cross_reference`` allows to render links to other
   documents in the documentation that will re recognized by JavaScript and

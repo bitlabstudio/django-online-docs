@@ -135,6 +135,7 @@ If you want to contribute to this project, please perform the following steps::
 
     $ git co -b feature_branch master
     # Implement your feature and tests
+    # Describe your change in the CHANGELOG.txt
     $ git add . && git commit
     $ git push origin feature_branch
     # Send us a pull request for your feature branch
