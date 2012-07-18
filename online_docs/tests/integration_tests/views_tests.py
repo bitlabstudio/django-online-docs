@@ -51,17 +51,23 @@ class OnlineDocsViewTestCase(ViewTestMixin, TestCase):
             'Should return 404 when no path is given'))
 
         resp = self.client.get(self.get_url() + '?path=/docs/')
-        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(resp.status_code, 200, msg=(
+            'Should be callable with either a `path` URL parameter...'))
+
+        resp = self.client.get(self.get_url() + '?file=online_docs_view.md')
+        self.assertEqual(resp.status_code, 200, msg=(
+            '...or a `file` URL parameter'))
 
         old_method = OnlineDocsView.get_document_name
         OnlineDocsView.get_document_name = mock.Mock()
         OnlineDocsView.get_document_name.return_value = 'foobar.md'
         resp = self.client.get(self.get_url() + '?path=/docs/')
-        self.assertEqual(resp.status_code, 200)
+
         # I would actually like to check if the partials/online_docs.html is
         # loaded here but for some reason it doesn't seem to get loaded, while
         # in a real django app it works. This is to test the code path where
         # no .md file can be found for the current view.
+        self.assertEqual(resp.status_code, 200)
         OnlineDocsView.get_document_name = old_method
 
     def test_get_document_name(self):

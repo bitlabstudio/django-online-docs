@@ -106,6 +106,21 @@ If you are unsure about the filename, just run your app, go to the view and
 click at the docs link. If you have ``DEBUG=True`` the error message will tell
 you the expected filename.
 
+If you want to reference to another document in your documentation, you can use
+the template tag ``url_cross_reference``::
+
+    {% load online_docs_tags %}
+    {% url_cross_reference "filename.md" "Link text" %}
+
+If you want to use that generated link inside a ``blocktrans`` tag, please do
+the following::
+
+    {% load online_docs_tags %}
+    {% url_cross_reference "filename.md" "Link text" as cross_link %}
+    {% blocktrans with cross_link=cross_link|safe %}
+    Foo bar {{ cross_link }}
+    {% endblocktrans %}
+
 Contribute
 ----------
 

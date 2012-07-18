@@ -1,5 +1,9 @@
 === 0.6 (in development) ===
 
+- New template tag ``url_cross_reference`` allows to render links to other
+  documents in the documentation that will re recognized by JavaScript and
+  therefore open in the current jQuery modal.
+
 === 0.5 ===
 
 - BUGFIX: When no .md template can be found for the current view, the app
