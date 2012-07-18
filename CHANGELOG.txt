@@ -1,6 +1,8 @@
-=== 0.5 (in development) ===
+=== 0.6 (in development) ===
 
-- Bugfix: When no .md template can be found for the current view, the app
+=== 0.5 ===
+
+- BUGFIX: When no .md template can be found for the current view, the app
   threw an exception and therefore did not display the error message.
 - New dependency in requirements.txt: mock
 - Removed some project specific code from online_docs.html template.
