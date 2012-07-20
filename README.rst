@@ -121,6 +121,19 @@ the following::
     Foo bar {{ cross_link }}
     {% endblocktrans %}
 
+Settings
+--------
+
+ONLINE_DOCS_DEBUG
++++++++++++++++++
+
+__Default:__ `False`
+
+Set this to `True` to see what the documentation filename for the current view
+should be. The filename will be appended to the rendered documentation output
+of the current view. So if you want to find out what the filename should be,
+just click at the docs link and scroll to the bottom of the output.
+
 Contribute
 ----------
 

@@ -1,5 +1,10 @@
 === 0.7 (in development) ===
 
+- New setting: ONLINE_DOCS_DEBUG. Default is False. Set it to True to see
+  what the documentation filename of the current view should be. It will be
+  displayed at the end of your rendered documentation, so just click at the
+  docs link.
+
 === 0.6 ===
 
 - New template tag ``url_cross_reference`` allows to render links to other

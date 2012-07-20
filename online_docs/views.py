@@ -1,9 +1,10 @@
 """Views for the ``online_docs`` app."""
-from django.conf import settings
 from django.core.urlresolvers import resolve
 from django.http import Http404
 from django.template import loader, RequestContext, TemplateDoesNotExist
 from django.views.generic import TemplateView
+
+from online_docs.app_settings import DOCS_DEBUG
 
 
 class OnlineDocsView(TemplateView):
@@ -29,7 +30,7 @@ class OnlineDocsView(TemplateView):
         ctx.update({
             'docs': template_rendered,
             'document_name': document_name,
-            'DEBUG': settings.DEBUG,
+            'ONLINE_DOCS_DEBUG': DOCS_DEBUG,
         })
         return ctx
 
