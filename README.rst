@@ -41,10 +41,12 @@ If you feel adventurous and want to install the latest commit from GitHub::
 
     $ pip install -e git://github.com/bitmazk/django-online-docs.git#egg=online_docs
 
-Add ``online_docs`` to your ``INSTALLED_APPS``::
+Add ``online_docs`` and ``django.contrib.markdown`` to your
+``INSTALLED_APPS``::
 
     INSTALLED_APPS = (
         ...,
+        'django.contrib.markdown',
         'online_docs',
     )
 

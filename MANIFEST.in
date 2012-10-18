@@ -6,3 +6,5 @@ include README.md
 graft online_docs
 global-exclude *.orig *.pyc *.log
 prune online_docs/tests/coverage/
+prune online_docs/.ropeproject/
+prune online_docs/.ropeproject/

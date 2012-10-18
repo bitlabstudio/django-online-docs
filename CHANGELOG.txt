@@ -1,5 +1,8 @@
+=== 0.7.1 (in development) ===
+
 === 0.7 (in development) ===
 
+- Improved README.rst
 - New setting: ONLINE_DOCS_DEBUG. Default is False. Set it to True to see
   what the documentation filename of the current view should be. It will be
   displayed at the end of your rendered documentation, so just click at the
