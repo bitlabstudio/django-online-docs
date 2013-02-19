@@ -9,5 +9,11 @@
     {% endif %}
     {% if ONLINE_DOCS_DEBUG %}
         <p>{% trans "Documentation filename for this view: " %} {{ document_name }}</p>
+        {% if error %}
+            <div class="error">
+                <p>{% trans "Could not render documentation: " %}<p>
+                <p>{{ error }}</p>
+            </div>
+        {% endif %}
     {% endif %}
 </div>
