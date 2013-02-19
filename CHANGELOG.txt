@@ -1,5 +1,7 @@
 === (ongoing ) ===
 
+=== 0.8 ===
+
 - Added better error output when ONLINE_DOCS_DEBUG is true.
 
 === 0.7 ===
